@@ -29,6 +29,7 @@ animal // dog
   ``` javascript
   var evenNumbers = new Array();
   ```
+## Adding an Element
 - JavaScript allows us to `push` elements on the end of an array
 ``` javascript
 var superheroines = ["catwoman", "mystique"];
@@ -63,7 +64,71 @@ const cats = ["Milo", "Garfield"]
 // We need a new variable
 const newCats = ["Felix", ...cats]
 ```
-- We can also add an array at specific indexes
+- While we *can* add elements to an array at specific indexes it's best not to. Adding elements directly inserts `undefined` if the length of the array also needs to be increased, which can lead to unexpected behavior
+## Accessing an Element
+- You can get elements out of arrays if you know their index, array elements' indexes start at 0
+``` javascript
+var celebrities = ["Oprah", "Huffington"]
+console.log(celebrities[0]);
+// will print "Oprah"
+```
+## Removing an Element
+- To remove an element from the beginning of an array, use the `shift` method. This method **mutates** the array
+``` javascript
+const days = ["Monday", "Tuesday", "Wednesday"]
+days.shift() // returns the removed element, in this case, Monday
+```
+- Use the `slice` method to remove an element from an array **without** mutation
+- The first argument specifies where the slice starts, the second specifies where it ends
+- To remove one element from the beginning use `slice(1)`
+``` javascript
+var cats = ["Garfield", "Otis"]
+cats = cats.slice(1) // ["Otis"]
+cats // ["Otis"]
+```
+- `cats = cats.slice(1)` sets the variable cats to the new array. Use a different variable to avoid mutation
+- Use negative indexes to get the last `n` elements of an array
+``` javascript
+var cats = ["Milo", "Garfield", "Otis"]
+cats.slice(-2) // ["Garfield, "Otis"]
+cats.slice(-1) // ["Otis"]
+```
+- To remove an element from the end of an array, use the `pop` method. This method **mutates** the array
+``` javascript
+var iceCreams = ["chocolate", "vanilla", "strawberry"]
+iceCreams.pop() // returns the removed element, in this case, "strawberry"
+iceCreams // ["chocolate, "vanilla"]
+```
+- Use `slice` to remove an element from the end of an array without mutating it
+``` javascript
+var iceCreams = ["chocolate", "vanilla", "strawbery"]
+iceCreams.slice(0, iceCreams.length - 1) // ["chocolate", "vanilla"]
+iceCreams // ["chocolate", "vanilla", "strawberry"]
+```
+- To remove an element from the middle of an array, use the `splice` method
+- The `splice` method takes an index in the array as the first argument, the # of elements to remove as the second argument, and any number of elements to add after that. All arguments are optional. With no arguments, `splice` returns an empty array and does nothing to the target array
+``` javascript
+let items = [1, 2, 3, 4]
+items.splice(1)
+// this will remove everything after index 1 (inclusive) and return the removed items [2, 3, 4]
+items // 1
+
+items = [1, 2, 3, 4]
+items.splice(1, 1)
+// at index 1, remove 1 item. It returns the removed items: [2]
+items // [1, 3, 4]
+
+items = [1, 2, 3, 4]
+items.splice(1, 1, 6, 7)
+// at index 1, remove 1 item and add 6 and 7
+// it returns the removed item: [2]
+// and adds the items to be added starting at the removal index
+items // [1, 6, 7, 3, 4]
+```
+
+
+
+
 
 
 
