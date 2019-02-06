@@ -35,5 +35,35 @@ var superheroines = ["catwoman", "mystique"];
 superheroines.push("wonder woman");
 // superheroines is now "catwoman", "mystique", "wonder woman"
 ```
--  
+-  We can also `unshift` elements onto the beginning of an array
+``` javascript
+var cities = ["New York", "San Francisco"]
+cities.unshift("Philadelphia")
+// cities is now "Philadelphia, "New York", "San Francisco"
+```
+- Both of these actions change the underlying array. They **mutate** its value
+- The **spread operator** spreads out the arrays contents, it creates a new array in place, rather than modifying the original one
+``` javascript
+var cities = ["New York", "San Francisco"]
+["Philadelphia", ...cities] // "Philadelphia", "New York", "San Francisco"
+cities // ["New York", "San Francisco"]
+```
+- Can also be used at the beginning of the array
+``` javascript
+var cities = ["New York", "San Francisco"]
+[...cities, "Philadelphia"] // ["New York", "San Francisco", "Philadelphia"]
+```
+- To preserve the new array, we need to assign it to a variable:
+``` javascript
+var cities = ["New York", "San Francisco"]
+// we can assign it to the existing cities variable
+cities = ["Philadelphia", ...cities]
+// but if we have a const
+const cats = ["Milo", "Garfield"]
+// We need a new variable
+const newCats = ["Felix", ...cats]
+```
+- We can also add an array at specific indexes
+
+
 
