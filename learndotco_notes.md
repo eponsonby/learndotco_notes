@@ -125,6 +125,12 @@ items.splice(1, 1, 6, 7)
 // and adds the items to be added starting at the removal index
 items // [1, 6, 7, 3, 4]
 ```
+- `slice` combined with the `spread operator` makes removing from the middle of an array much easier
+``` javascript
+var items = [1, 2, 3, 4, 5]
+// the below slices from the start up to (not including) index 2 and then a slice from index 3 to the end
+[...items.slice(0, 2), ...items.slice(3)] // [1, 2, 4, 5]
+```
 
 
 
