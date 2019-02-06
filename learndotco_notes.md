@@ -1,4 +1,4 @@
-#JavaScript Scope
+# JavaScript Scope
 - Scope is the current context of your code
 - A variable declared in the outermost scope of a project is going to be global
 - Variables declared with `var` are only available within that functions scope. Variables declared without `var` attach themselves to the global object
@@ -18,7 +18,7 @@ animal // dog
 ```
 - This is called shadowing, when the inner variable shadows the outer variable of the same name. Only the one declared inside the makeZoo function is used within the function and only the one declared outside the function is available outside of it.
 
-#JavaScript Arrays
+# JavaScript Arrays
 - JS arrays contain all types of values and can be of mixed types
 - You can create arrays in two different ways
   * Array Literals look like this:
