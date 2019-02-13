@@ -6,6 +6,8 @@
 - A closure is a combination of a function and the lexical environment within which that function was declared
 - This environment consists of any local variables that were in-scope at the time the closure was created
 - [MDN Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+- The inner function is the closure
+- (https://medium.freecodecamp.org/javascript-closures-simplified-d0d23fa06ba4)
 ## Shadowy variables
 ``` javascript
 var animal = 'dog';
@@ -131,6 +133,136 @@ var items = [1, 2, 3, 4, 5]
 // the below slices from the start up to (not including) index 2 and then a slice from index 3 to the end
 [...items.slice(0, 2), ...items.slice(3)] // [1, 2, 4, 5]
 ```
+# JavaScript Objects
+- In programming, "associative data structures" are like dictionaries. They contain pairs of keys and values. 
+- In JS, the barebones associative data structure is called an *object*. That means that, in an object, you can look up something by its key and get back its value
+- You might hear people refer to objects as 'dictionaries'
+## Creating Objects
+- Two ways to create an object: with the literal syntax and with the `Object` constructor. A constructor constructs objects
+- Literal Syntax:
+``` javascript
+var meals = {};
+```
+- The curly braces above are an object
+- The Object Constructor:
+``` javascript
+var meals = new Object();
+```
+- You can also initialize an object with key-value pairs when you create it
+``` javascript
+var meals = { breakfast: "oatmeal" };
+// or equivalently
+var meals = new Object({breakfast: 'oatmeal'})
+```
+- In the above example, `breakfast` is the key and `oatmeal` is the value
+- Note that all keys in JavaScript objects are strings. If you create a key with a number, it becomes a string, like this '1'
+- Note also that keys must be unique. If you were to initialize the following object:
+``` javascript
+var meals = {
+    breakfast: 'eggs'
+    breakfast: 'bacon'
+}
+```
+- And then checked the value of meals, it would be `{ breakfast : 'bacon' }`. Only the last key-value pair to use breakfast as the key gets saved. Values don't have to be unique though
+``` javascript
+var meals = {
+    breakfast: 'avocado'
+    lunch: 'avocado'
+    dinner: 'avocado'
+}
+```
+- If you have a variable `const first meal = 'breakfast'` and tried to create an object `var meals = { firstMeal: 'oatmeal' }`, the meals object key would be `firstMeal`, not `breakfast`
+- You can use in ES6, wrap the key in square brackets so that you can use variables as object keys
+```javascript
+var meals = { [firstMeal]: 'Oatmeal'}
+```
+- We can access the values in an object using dot notation or square-bracket notation. Note that when we use dot notation, we do not wrap the key in quotes, the key must be able to be treated as a string.
+``` javascript
+meals.breakfast /// 'oatmeal'
+meals['breakfast'] /// 'oatmeal'
+```
+- Could also do the following but we must use bracket notation if we can to access values that belong to a variable key
+``` javascript
+meals[firstMeal] // 'oatmeal'
+```
+## Adding to an Object
+- We can initialize an object with some key-value pairs
+``` javascript
+var meals = {
+    breakfast: 'oatmeal'
+    lunch: 'burrito'
+    dinner: 'steak'
+}
+```
+- We can also add new key-value pairs to objects using dot syntax
+``` javascript
+meals.snack = 'yogurt';
+```
+- We can also add key-value pairs using bracket notation
+``` javascript
+meals['second breakfast'] = 'bagel'
+```
+- We can also use variables as keys
+``` javascript
+var sweetMeal = 'dessert'
+meals[sweetMeal] = 'cake';
+meals.dessert // cake
+meals[sweetMeal] // cake
+```
+- We can also update key-value pairs using the key
+``` javascript
+meals.breakfast = 'cereal'
+```
+- The above changes are all *destructive*. If we apply these changes to an object by passing the object to a function, the original object will change
+``` javascript
+function destructivelyUpdateObject(obj, key, value) {
+    obj[key] = value
+
+    return obj
+    }
+const recipe = { eggs: 3 }
+destructivelyUpdateObject(recipe, 'flour', '3 cups')
+//returns { eggs: 3, flour: '3 cups' }
+// but also
+recipe // { eggs: 3, flour: '3 cups' }
+```
+- `Object.assign()` can be used to create a new object that stores both the old and new properties
+- Can be used to create a new object and pass it properties from existing objects. The first value is the target object that gets modified. All the values afterward can be any number of objects. It then copies them from left to right onto the target object. (But if two objects share a key, the right-most object's value for that key will win).
+``` javascript
+Object.assign({}, { foo: 'bar'})
+// { foo: 'bar'}
+
+Object.assign({ eggs: 3}, { flour: '1 cup' })
+// { eggs: 3, flour: '1 cup' }
+
+Object.assign({ eggs: 3 }, chocolate: '1 cup', flour: '2 cups'}, { flour: '1/2 cup' })
+// { eggs: 3, chocolate: '1 cup', flour: '1/2 cup' }
+``` 
+- `Object.assign()` allows us to rewrite the above function in a non-destructive way
+``` javascript
+function UpdateObject(obj, key, value) {
+    return Object.assign({}, obj, { [key]: value})
+}
+// It's impt that we merge everything into a new object
+// such as the empty {}, otherwise the obj object will be modified
+
+const recipe = { eggs: 3 }
+updateObject(recipe, 'chocolate', '1 cup')
+// returns { eggs: 3, chocolate: '1 cup'}
+recipe // { eggs: 3 }
+// recipe has not changed
+```
+- This function can also be shortened as follows
+``` javascript
+function updateObject(targetObject, updatesObject) {
+    return Object.assign({}, targetObject, updatesObject)
+}
+```
+## Deleting a Key-Value Pair
+- 
+
+## Changing a Value
+
 
 
 
