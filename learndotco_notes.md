@@ -219,7 +219,7 @@ function destructivelyUpdateObject(obj, key, value) {
     obj[key] = value
 
     return obj
-    }
+}
 const recipe = { eggs: 3 }
 destructivelyUpdateObject(recipe, 'flour', '3 cups')
 //returns { eggs: 3, flour: '3 cups' }
@@ -232,7 +232,7 @@ recipe // { eggs: 3, flour: '3 cups' }
 Object.assign({}, { foo: 'bar'})
 // { foo: 'bar'}
 
-Object.assign({ eggs: 3}, { flour: '1 cup' })
+Object.assign({ eggs: 3 }, { flour: '1 cup' })
 // { eggs: 3, flour: '1 cup' }
 
 Object.assign({ eggs: 3 }, chocolate: '1 cup', flour: '2 cups'}, { flour: '1/2 cup' })
@@ -241,7 +241,7 @@ Object.assign({ eggs: 3 }, chocolate: '1 cup', flour: '2 cups'}, { flour: '1/2 c
 - `Object.assign()` allows us to rewrite the above function in a non-destructive way
 ``` javascript
 function UpdateObject(obj, key, value) {
-    return Object.assign({}, obj, { [key]: value})
+    return Object.assign({}, obj, { [key]: value })
 }
 // It's impt that we merge everything into a new object
 // such as the empty {}, otherwise the obj object will be modified
@@ -259,11 +259,112 @@ function updateObject(targetObject, updatesObject) {
 }
 ```
 ## Deleting a Key-Value Pair
-- 
+- We can delete key-value pairs as follows
+``` javascript
+var meals = { breakfast: 'oatmeal', lunch: 'turkey', dinner: 'steak' };
+// the delete operator returns true if it has successfully
+// deleted, false otherwise
+delete meals.dinner; // true
 
+meals;
+// returns { breakfast: 'oatmeal', lunch: 'turkey' }
+```
 ## Changing a Value
+- We can update a value as follows
+``` javascript
+var meals = {
+    breakfast: 'oatmeal',
+    lunch: 'turkey',
+    dinner: 'steak'
+};
+meals.breakfast = ['oatmeal', 'banana'];
+meals;
+// {
+//    breakfast: ['oatmeal', 'banana'],
+//    lunch: 'turkey'
+//    dinner: 'steak'
+// }
+```
+- We can change a value non-destructively using Object.assign():
+``` javascript
+var meals = {
+    breakfast: 'oatmeal',
+    lunch: 'turkey',
+    dinner: 'steak'
+};
 
+Object.assign({}, meals, { breakfast: ['oatmeal', 'banana'] })
+// returns {
+//    breakfast: ['oatmeal', 'banana'],
+//    lunch: 'turkey',
+//    dinner: 'steak'    
+//    }
+meals
+// still {
+//    breakfast: 'oatmeal',
+//    lunch: 'turkey', 
+//    dinner: 'steak'
+//    };
+```
 
+# Javascript Intro to Looping
+## The For Loop
+- This loop is the most common. Looks like this
+``` javascript
+for ([initialization]; [condition]; [iteration]) {
+    [loop body];
+}
+```
+- Initialization: an expression (including assignment expressions) or variable declaration. Typically used to initialize a counter variable. This expression may optionally declare new variables with the var keyword
+- Condition: an expression evaluated before each loop iteration. If this statement evaluates to true, the statement is executed
+- Iteration: a statement executed at the end of each iteration. Typically this involves incrementing or decrementing a counter, bringing the loop ever closer to the end
+- Loop body: code which runs on every iteration as long as the condition evaluates to true
+- Use a `for` loop when you know how many times you want the loop to run (for example, when you have an array of known size)
+- Example of a `for` loop
+``` javascript
+for (var i = 1; i < 100; i++) {
+    console.log("Hello, world the " + i + " time")
+}
+```
+## The While Loop
+- Similar to an if statement except that its body will keep executing until the condition evaluates to false. Looks like this:
+``` javascript
+while ([condition]) {
+    [loopbody];
+}
+```
+- While loops are best used when we don't know how many times a loop needs to run - that is the condition is dependent on a dynamic function/return value
+- Example of a while loop:
+``` javascript
+function maybeTrue() {
+    return Math.random() >= 0.5; // returns a random # between 0 (inclusive) and 1 (exclusive)
+}
+// run until maybeTrue returns false
+// this means the body of the loop might never run
+while (maybeTrue()) {
+    console.log("And I ran; I ran so far away!");
+}
+```
+## The Do-While Loop
+- Almost exactly the same as the while loop, except for the fact that the loops body is executed at least once before the condition is tested. Looks like this:
+``` javascript
+do {
+    [loop body];
+} while ([condition]);
+```
+- do-while loops are rarely used since very few situations require a loop that blindly executes at least once.
+``` javascript
+var i = 0;
+
+function incrementVariable() {
+    i = i + 1;
+    return i;
+}
+ do {
+     console.log("doo-bee-doo-bee-doo");
+     } while (incrementVariable() < 5);
+```
+- review "Beatles Loops Lab" on learn.co for good examples
 
 
 
