@@ -159,15 +159,15 @@ var meals = new Object({breakfast: 'oatmeal'})
 - Note also that keys must be unique. If you were to initialize the following object:
 ``` javascript
 var meals = {
-    breakfast: 'eggs'
+    breakfast: 'eggs',
     breakfast: 'bacon'
 }
 ```
 - And then checked the value of meals, it would be `{ breakfast : 'bacon' }`. Only the last key-value pair to use breakfast as the key gets saved. Values don't have to be unique though
 ``` javascript
 var meals = {
-    breakfast: 'avocado'
-    lunch: 'avocado'
+    breakfast: 'avocado',
+    lunch: 'avocado',
     dinner: 'avocado'
 }
 ```
