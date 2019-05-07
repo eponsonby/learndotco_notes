@@ -15,5 +15,5 @@
 * Why and When to Instantiate Objects?
 
    - Every time you want to represent a new individual in your program, you should instantiate an object of that type
-   - When you have primitive data and you want to "reify" it into a more abstract representation of that data in your program
-   -
+   - When you have primitive data and you want to "reify" it into a more abstract representation of that data in your program. Reification - when you take a primitive and make it into something more abstract, you are "reifying" it
+   - When you want to marry some data with logic that relates to a singular concept even if its global (like a connection to an API or data source)
