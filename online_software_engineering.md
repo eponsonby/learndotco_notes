@@ -14,4 +14,6 @@
 ### Object Orientation: Mechanics (Video)
 * Why and When to Instantiate Objects?
 
-   When you have primitive data and you want to "reify" it into a more abstract representation of that data in your program
+   - Every time you want to represent a new individual in your program, you should instantiate an object of that type
+   - When you have primitive data and you want to "reify" it into a more abstract representation of that data in your program
+   -
