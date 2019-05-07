@@ -10,4 +10,3 @@
 * Class reader methods are very similar to instance reader methods. A class reader method is a method for reading the data stored in a class variable
 * Class Finders - if you have a class called Person and you've set a class variable called `@@all` equal to an array of all new instances of persons you create, how would you find an individual by name in that array? You could use iteration and `.find` each time but that would be unsustainable in a large program. Instead, define a method that will teach our Person class *how* to search
 * Finder class methods are responsible for finding instances based on some property or condition
- 
