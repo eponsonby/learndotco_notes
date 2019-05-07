@@ -55,11 +55,22 @@
 
    - CM's operate on the entire class and expose the class' scope to the rest of your program
    - CM's can operate as custom constructors (very useful for this) instantiating instances in new and more complex ways
-   - CM's can operate on all their instances via class variables and instance memoization but do not have access to instance scope
+   - CM's can operate on all their instances via class variables and instance memoization (Memoization simply means remembering something. When you memoize something, you teach the object how to remember it.) but do not have access to instance scope
    - CM's are commonly used for Class-wide tasks such as querying or class-wide CRUD or operations (emailing all users)
 
 * What is a Class Constructor?
 
    - A CC is any class method that instantiates an instance of the class. The built-in constructor for all classes is Class.new. To customize functionality, you could override the default initialize method but it is better to extend new by wrapping it in your own constructor
    - `Artist.new_from_url` is better than overriding initialize to accept a URL as you will want to be able to instantiate an Artist without a URL
-   
+
+* When and Why to Use a Class Variable
+
+   - CV's are for properties that belong to the entire class
+   - A class level variable is commonly used for instance memoization
+
+* What is Self?
+
+   - Whenever an object needs to refer to itself, the keyword `self` is used
+   - In an instance method, self will always refer to the instance itself
+   - In a class method, self will always refer to the class itself
+   - Self can be thought of as the thing that will receive this method call
