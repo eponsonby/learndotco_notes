@@ -366,6 +366,15 @@ function incrementVariable() {
 ```
 - review "Beatles Loops Lab" on learn.co for good examples
 
+# The DOM
+- The DOM (Document Object Model) provides a way of manipulating HTML and XML documents. 
+- The highest level of the DOM tree is the window object. Think of the window as the browser window. The window contains the entire DOM document. All components of your HTML file will be accessible from within the window. 
+- The document object represents any web page loaded in the browser. The document contains all the nodes that represent the HTML elements of the page. We use the document object to traverse through the HTML and manipulate the elements. 
+- We can select elements in the document with JavaScript and jQuery. 
+- Developers use a library called jQuery for interacting with the DOM. 
+ 
+ # Traversing Nested Objects
+ 
 
 
 
