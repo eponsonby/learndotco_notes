@@ -1,7 +1,6 @@
 # Object Oriented Ruby
 ## Intro to Object Orientation
-(These notes are from the Wee 4 Intro to OOP lecture)
-[https://docs.google.com/document/d/1oplSBW2D5CuAds6VR4SHLHh3UgJo7f-yBrFL8DNx_vQ/edit]
+(These notes are from the Week 4 [Intro to OOP lecture](https://docs.google.com/document/d/1oplSBW2D5CuAds6VR4SHLHh3UgJo7f-yBrFL8DNx_vQ/edit))
 
 
 ## Object Models
