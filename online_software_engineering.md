@@ -1,6 +1,34 @@
 # Object Oriented Ruby
 ## Intro to Object Orientation
 (These notes are from the Week 4 [Intro to OOP lecture](https://docs.google.com/document/d/1oplSBW2D5CuAds6VR4SHLHh3UgJo7f-yBrFL8DNx_vQ/edit))
+* In OOP, we make self-contained stateful entities that can manage themselves. For example instance variables, that are able to keep data inside of them to give that thing state. For example a car has a state, the engine can either be on or off. OOP allows us to represent state.
+
+* Properties and Methods
+  - So how do we get our objects to have the characteristics and behavior that we want? Characteristics = Properties or Instance Variables. This is the data that defines our object. For example a dog could have weight and breed
+  - Syntactically, we use instance variables with an @ prefix
+  - Note, we only use instance variables inside classes
+  - Behaviors = methods, these are the actions our dog can take
+  - Syntactically, methods look like functions, except they exist inside of a classes
+
+* Instance Methods vs Class Methods
+  - We call the behavior of our classes class methods and the behavior of our objects instance methods
+  - If the method does something particular to an individual (for example when a dog walks, eats, this pertains only to the particular dog)
+  - If the method transcends the individual, this would be appropriate for the class (for example, creating new instances, keeping track of how many individual objects of the class exist)
+  - Instance methods
+
+  def method_name(arg)
+    # method body
+  end
+  - Class Methods
+
+  def self.method_name(arg)
+    # method body
+  end
+
+* Next section
+
+
+
 
 
 ## Object Models
