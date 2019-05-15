@@ -1,4 +1,9 @@
 # Object Oriented Ruby
+## Intro to Object Orientation
+(These notes are from the Wee 4 Intro to OOP lecture)
+[https://docs.google.com/document/d/1oplSBW2D5CuAds6VR4SHLHh3UgJo7f-yBrFL8DNx_vQ/edit]
+
+
 ## Object Models
 ### Remembering objects
 * an @@ before a variable name indicates a class variable, like this: `@@class_variable`
@@ -74,3 +79,11 @@
    - In an instance method, self will always refer to the instance itself
    - In a class method, self will always refer to the class itself
    - Self can be thought of as the thing that will receive this method call
+
+## OO Tic Tac Toe
+### Procedural vs Object Oriented Ruby
+* In procedural programming, we have data and we have the procedures or instructions for operating on that data
+* In PP data and procedures are two separate things
+* in OOP, we have units of code that contain both data and instructions, such that an object operates on its own data structure
+## Object Relationships
+### Intro to Object Relationships
