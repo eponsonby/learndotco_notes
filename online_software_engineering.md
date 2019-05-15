@@ -14,14 +14,14 @@
   - We call the behavior of our classes class methods and the behavior of our objects instance methods
   - If the method does something particular to an individual (for example when a dog walks, eats, this pertains only to the particular dog)
   - If the method transcends the individual, this would be appropriate for the class (for example, creating new instances, keeping track of how many individual objects of the class exist)
-  - Instance methods
 ``` Ruby
+  # Instance Method
   def method_name(arg)
     # method body
   end
 ```
-  - Class Methods
 ``` Ruby
+  # Class Method
   def self.method_name(arg)
     # method body
   end
