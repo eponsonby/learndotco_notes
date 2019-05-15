@@ -26,7 +26,10 @@
     # method body
   end
 ```
-* Next section
+* Instance Variables vs Class Variables
+  - We have variables associated with individual instances and those that are associated with class
+  - For our dog, instance methods may include `@name`, `@weight`
+  - Our dog class variables may include `@@all`
 
 
 
