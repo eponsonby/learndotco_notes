@@ -30,6 +30,41 @@
   - We have variables associated with individual instances and those that are associated with class
   - For our dog, instance methods may include `@name`, `@weight`
   - Our dog class variables may include `@@all`
+  - Instance variables should be defined in your initialize method
+  - Class variables should be defined outside of a method, usually at the top of the classes
+
+* Initialize
+  - Sets up all of our properties, or instance variables of the individual object we are currently instantiating
+  - We never call initialize directly, we call the class method `.new` Why?
+  - Initialize gets called by the class method new, which is inherited by every Ruby class. The method new is a class method which allocates memory for the new object we are creating and then calls our initialize method if we defined one. We don't want to have to manually manage our computer's memory so Ruby does it for us. The class is thus put in charge of all this setup via the new method, which involves allocating memory for the new object and calling the initialize method in order to give the new object all of its unique data
+
+* Readers and Writers
+  - In Ruby you cannot access instance variables outside of the class (well you can but it's cheating, don't worry about it)
+  - You need to write methods that give access to the object's instance variables to those using your object
+  - If you want to be able to read your instance variables, you have to make reader methods
+  - If you want to be able to set your instance variables after initialization, you have to make writer methods
+  - It does get tedious to write readers and writers for every single class you neeed to write. There are some built in class methods that write code for us (this is called metaprogramming - code that is writing code)
+
+* Self
+  - Self means different things in different locations
+  - If your code comes across a variable that is not defined locally, Ruby will implicitly add self to the front of the variable. So if you reference an instance variable without the @ and you have a reader or writer, that is what will be used. Otherwise you'll get a NoMethodError
+  - Inside an instance method, self refers to that one specific instance
+  - Outside of a method or inside of a class method, self refers to the class itself, not the object
+  - `attr_accessor`, `attr_reader`, `attr_writer` are class methods. Self is implicitly added to the front of them, which is why they work
+
+* Pillars of OOP
+  - Encapsulation
+    - Mechanism to restrict direct access to an object's properties
+    - Bundle setting data in the object with other custom actions within a method
+  - Abstraction
+    - Abstraction is a black box concept. We only care about inputs and outputs, we don't care about all the complicated stuff on the inside
+    - Its the idea of taking something complicated and reducing it to its interface with the outside world (inputs and outputs)
+  - Inheritance
+    - Mechanism in which a child class obtains properties and methods of a parent class
+  - Polymorphism
+    - The ability to present the same interface for different underlying data types and actions
+    
+
 
 
 
@@ -116,5 +151,42 @@
 * In procedural programming, we have data and we have the procedures or instructions for operating on that data
 * In PP data and procedures are two separate things
 * in OOP, we have units of code that contain both data and instructions, such that an object operates on its own data structure
-## Object Relationships
-### Intro to Object Relationships
+
+# ORM's and Active Record
+# ORM's
+### Updating Records in an ORM
+* A class instance gets assigned a unique id right after being inserted into the database, with the save method
+``` Ruby
+def save
+   if self.id
+      self.update
+   else
+      sql = <<-SQL
+         INSERT INTO songs (name, album)
+         VALUES (?, ?)
+      SQL
+      DB[:conn].execute(sql, self.name, self.album)
+      @id = DB[:conn].execute("SELECT last_insert_rowid() FROM songs")[0][0]
+   end
+end
+```
+* The Update method
+``` Ruby
+def update
+   sql = "UPDATE songs SET name = ?, album = ? WHERE id = ?"
+   DB[:conn].execute(sql, self.name, self.album, self.id)
+end
+```
+* The Create Method
+``` Ruby
+def self.create(name, grade)
+   student = Student.new(name, grade)
+   student.save
+   student
+end
+```
+### Dynamic Orm's
+
+
+
+
