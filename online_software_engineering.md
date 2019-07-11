@@ -186,6 +186,51 @@ def self.create(name, grade)
 end
 ```
 ### Dynamic Orm's
+* The table name method
+``` Ruby
+class Song
+    def self.table_name
+      self.to_s.downcase.pluralize
+    end
+end
+```
+* The column names method
+``` Ruby
+def self.column_names
+   DB[:conn].results_as_hash = true
+
+   sql = "PRAGMA table_info ('#{table_name}')"
+
+   table_info = DB[:conn].execute(sql)
+   column_names = []
+
+   table_info.each do |column|
+      column_names << column["name"]
+   end
+
+   column_names.compact
+end
+```
+* Setting attribute accessors
+``` Ruby
+self.column_names.each do |col_name|
+   attr_accessor col_name.to_sym
+end
+```
+* The Initialize Method
+``` Ruby
+def initialize(options={})
+   options.each do |property, value|
+      self.send("#{property}=", value)
+   end
+end
+```
+
+# [Bonus] Rack
+## Rack and the Internet
+# How the Internet Works
+* The internet operates based on conversations between the client (more familiarly known as the browser) and the server (the code running the web site you're trying to load). By typing in that URL into your browser, you (the client) are requesting a web page. The server then receives the request, processes it, and sends a response. Your browser receives that response and shows it to you. 
+
 
 
 
