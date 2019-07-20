@@ -240,7 +240,20 @@ end
 * Sinatra is a Domain Specific Language implemented in Ruby that's used for writing web applications
 * The term DSL is used for libraries that allow you to write descriptive, narrative Ruby code that “speaks” about the solution to a problem using terms that are specific to the given problem domain (in Sinatra, the domain is writing web applications)
 * It is rack-based which means it can fit into any rack-based application stack, including Rails
-* Just like software has different versions, gems have newer versions. ```bundle-install``` will look in the current versions of the gems for your application. That way, if there are any updates, your app won't break. It keeps the versions in a file called Gemfile.lock that is created for you.
+* Just like software has different versions, gems have newer versions. ```bundle-install``` will lock in the current versions of the gems for your application. That way, if there are any updates, your app won't break. It keeps the versions in a file called Gemfile.lock that is created for you.
+### Sinatra From Scratch
+* The ```app.rb``` file is the heart of a Sinatra application. This is our application controller. The AC handles all incoming requests to our app, and sends back the appropriate responses to the client.
+* Sinatra relies on rack for its middleware. Middleware is software that bridges the connection between our Ruby application and the database
+### Sinatra Basics
+* Web applications tend to require a certain degree of complexity. To handle this, Sinatra is more commonly used through the Modular Sinatra Pattern (over the single file ```app.rb``` pattern)
+* This pattern introduces the convention of a ```config.ru``` file. The purpose of this file is the detail to Rack the environment requirements of the application and start the application. A config.ru might look like this
+``` Ruby
+require 'sinatra'
+
+require_relative './app.rb'
+
+run Application
+```
 
 
 
