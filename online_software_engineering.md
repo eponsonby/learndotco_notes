@@ -230,6 +230,18 @@ end
 ## Rack and the Internet
 # How the Internet Works
 * The internet operates based on conversations between the client (more familiarly known as the browser) and the server (the code running the web site you're trying to load). By typing in that URL into your browser, you (the client) are requesting a web page. The server then receives the request, processes it, and sends a response. Your browser receives that response and shows it to you. 
+* The way browsers and servers talk is controlled by a contract or protocol. Specifically it is a protocol created by Tim Berners-Lee called the Hyper Text Transfer Protocol or HTTP. Your server will receive requests from the browser that follow HTTP. It then responds with an HTTP response that all browsers are able to parse.
+* When you make a request on the web, how do you know where to send it? This is done through Uniform Resource Identifiers or URIs. You've probably also heard of these as URLs. Both are fine.
+
+# Sinatra
+## Sinatra Basics
+### What is Sinatra?
+* A web application framework (WAF) is a software framework that is designed to support the development of dynamic websites, web applications, web services and web resources. The framework aims to alleviate the overhead associated with common activities performed in web development.
+* Sinatra is a Domain Specific Language implemented in Ruby that's used for writing web applications
+* The term DSL is used for libraries that allow you to write descriptive, narrative Ruby code that “speaks” about the solution to a problem using terms that are specific to the given problem domain (in Sinatra, the domain is writing web applications)
+* It is rack-based which means it can fit into any rack-based application stack, including Rails
+* Just like software has different versions, gems have newer versions. ```bundle-install``` will look in the current versions of the gems for your application. That way, if there are any updates, your app won't break. It keeps the versions in a file called Gemfile.lock that is created for you.
+
 
 
 
